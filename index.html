@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+쓰담쓰담 플로깅 신청
+</title>
+
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+
+  margin: 0;
+
+  padding: 20px;
+
+  background: #f5f7f6;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Noto Sans KR",
+    sans-serif;
+
+  color: #222;
+
+}
+
+
+.container {
+
+  width: 100%;
+
+  max-width: 560px;
+
+  margin: 0 auto;
+
+  padding: 30px 24px;
+
+  background: white;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 8px 28px
+    rgba(0,0,0,0.08);
+
+}
+
+
+h1 {
+
+  margin: 0;
+
+  text-align: center;
+
+  color: #256348;
+
+  font-size: 28px;
+
+}
+
+
+.subtitle {
+
+  margin:
+    10px 0 25px;
+
+  text-align: center;
+
+  color: #666;
+
+  line-height: 1.6;
+
+}
+
+
+.notice {
+
+  padding: 16px;
+
+  margin-bottom: 25px;
+
+  border-radius: 14px;
+
+  background: #eef7f1;
+
+  color: #365847;
+
+  line-height: 1.7;
+
+  font-size: 14px;
+
+}
+
+
+.field {
+
+  margin-bottom: 20px;
+
+}
+
+
+label {
+
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-weight: 700;
+
+}
+
+
+.required {
+
+  color: #df4747;
+
+}
+
+
+input,
+select {
+
+  width: 100%;
+
+  min-height: 50px;
+
+  padding: 0 14px;
+
+  border:
+    1px solid #d4ddd8;
+
+  border-radius: 12px;
+
+  background: white;
+
+  font-size: 16px;
+
+}
+
+
+input:focus,
+select:focus {
+
+  outline: none;
+
+  border-color: #40815e;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(64,129,94,0.10);
+
+}
+
+
+select option:disabled {
+
+  color: #aaa;
+
+}
+
+
+.help {
+
+  margin-top: 7px;
+
+  color: #777;
+
+  font-size: 13px;
+
+}
+
+
+.remaining {
+
+  color: #d47700;
+
+  font-weight: 700;
+
+}
+
+
+.saturday {
+
+  display: none;
+
+  margin-top: 9px;
+
+  padding: 11px;
+
+  border-radius: 10px;
+
+  background: #fff6df;
+
+  color: #795b18;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+}
+
+
+button {
+
+  width: 100%;
+
+  min-height: 54px;
+
+  border: 0;
+
+  border-radius: 14px;
+
+  background: #367b58;
+
+  color: white;
+
+  font-size: 17px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+}
+
+
+button:disabled {
+
+  background: #aeb8b3;
+
+  cursor: wait;
+
+}
+
+
+.message {
+
+  display: none;
+
+  margin-top: 20px;
+
+  padding: 16px;
+
+  border-radius: 12px;
+
+  text-align: center;
+
+  line-height: 1.6;
+
+  font-weight: 700;
+
+}
+
+
+.success {
+
+  display: block;
+
+  background: #eaf6ee;
+
+  color: #28603f;
+
+}
+
+
+.error {
+
+  display: block;
+
+  background: #fff0f0;
+
+  color: #9e3939;
+
+}
+
+
+@media
+(max-width:480px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .container {
+
+    padding:
+      24px 17px;
+
+    border-radius: 16px;
+
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>
+🌱 쓰담쓰담 플로깅
+</h1>
+
+
+<p class="subtitle">
+
+우리 동네를 걸으며<br>
+환경도 지키고 봉사활동도 함께해요.
+
+</p>
+
+
+<div class="notice">
+
+<strong>📌 신청 안내</strong><br>
+
+· 1일 정원은 <strong>5명</strong>입니다.<br>
+
+· 일요일은 운영하지 않습니다.<br>
+
+· 토요일 운영시간은
+<strong>09:00~13:00</strong>이며
+<strong>11시까지 활동을 시작</strong>할 수 있습니다.<br>
+
+· 마감된 날짜는 선택할 수 없습니다.
+
+</div>
+
+
+
+<form
+  id="applicationForm"
+  method="POST"
+  target="submitFrame"
+>
+
+
+<div class="field">
+
+<label>
+
+활동 날짜
+<span class="required">*</span>
+
+</label>
+
+
+<select
+  id="activityDate"
+  name="activityDate"
+  required
+>
+
+<option value="">
+일정을 불러오는 중입니다...
+</option>
+
+</select>
+
+
+<div
+  id="dateHelp"
+  class="help"
+>
+</div>
+
+
+<div
+  id="saturdayNotice"
+  class="saturday"
+>
+
+토요일은 오전 9시·10시·11시에
+활동을 시작할 수 있으며,
+오후 1시에 운영이 종료됩니다.
+
+</div>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+
+활동 시작시간
+<span class="required">*</span>
+
+</label>
+
+
+<select
+  id="startTime"
+  name="startTime"
+  required
+  disabled
+>
+
+<option value="">
+먼저 활동 날짜를 선택해주세요
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+
+활동시간
+<span class="required">*</span>
+
+</label>
+
+
+<select
+  id="activityTime"
+  name="activityTime"
+  required
+  disabled
+>
+
+<option value="">
+먼저 시작시간을 선택해주세요
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+
+이름
+<span class="required">*</span>
+
+</label>
+
+
+<input
+  type="text"
+  id="name"
+  name="name"
+  autocomplete="name"
+  required
+>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+
+연락처
+<span class="required">*</span>
+
+</label>
+
+
+<input
+  type="tel"
+  id="phone"
+  name="phone"
+  placeholder="010-0000-0000"
+  autocomplete="tel"
+  required
+>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+VMS 아이디
+</label>
+
+
+<input
+  type="text"
+  id="vmsId"
+  name="vmsId"
+>
+
+
+<div class="help">
+
+봉사시간 등록이 필요한 경우
+VMS 아이디를 정확하게 입력해주세요.
+
+</div>
+
+</div>
+
+
+<button
+  id="submitButton"
+  type="submit"
+>
+
+신청하기
+
+</button>
+
+
+</form>
+
+
+
+<div
+  id="message"
+  class="message"
+>
+</div>
+
+
+<!--
+  개인정보 POST용 숨김 iframe
+-->
+<iframe
+  name="submitFrame"
+  id="submitFrame"
+  style="display:none;"
+>
+</iframe>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================================
+   Apps Script 백엔드 주소
+========================================================= */
+
+const BACKEND_URL =
+'https://script.google.com/macros/s/AKfycbwb3rc_9JHlZZT9_9_7zo5VXXZhdVwYKm99p2iF_fomvxf_PbtcnYYchccVzLEpYKasnQ/exec';
+
+
+let scheduleData = [];
+
+let selectedSchedule = null;
+
+
+/* =========================================================
+   초기 실행
+========================================================= */
+
+document.addEventListener(
+  'DOMContentLoaded',
+  function() {
+
+    const form =
+      document.getElementById(
+        'applicationForm'
+      );
+
+
+    form.action =
+      BACKEND_URL;
+
+
+    loadSchedule();
+
+  }
+);
+
+
+/* =========================================================
+   일정 JSONP 조회
+========================================================= */
+
+function loadSchedule() {
+
+  const oldScript =
+    document.getElementById(
+      'scheduleScript'
+    );
+
+
+  if (oldScript) {
+
+    oldScript.remove();
+
+  }
+
+
+  const callbackName =
+    'receiveSchedule_' +
+    Date.now();
+
+
+  window[callbackName] =
+    function(data) {
+
+      scheduleData =
+        data || [];
+
+
+      renderSchedule();
+
+
+      delete
+        window[callbackName];
+
+
+      const script =
+        document.getElementById(
+          'scheduleScript'
+        );
+
+
+      if (script) {
+        script.remove();
+      }
+
+    };
+
+
+  const script =
+    document.createElement(
+      'script'
+    );
+
+
+  script.id =
+    'scheduleScript';
+
+
+  script.src =
+    BACKEND_URL +
+    '?action=schedule' +
+    '&callback=' +
+    encodeURIComponent(
+      callbackName
+    ) +
+    '&t=' +
+    Date.now();
+
+
+  script.onerror =
+    function() {
+
+      showMessage(
+        '일정을 불러오지 못했습니다. 잠시 후 다시 시도해주세요.',
+        false
+      );
+
+    };
+
+
+  document.body.appendChild(
+    script
+  );
+
+}
+
+
+/* =========================================================
+   일정 화면 표시
+========================================================= */
+
+function renderSchedule() {
+
+  const select =
+    document.getElementById(
+      'activityDate'
+    );
+
+
+  select.innerHTML =
+    '<option value="">활동 날짜를 선택해주세요</option>';
+
+
+  if (
+    scheduleData.length === 0
+  ) {
+
+    select.innerHTML =
+      '<option value="">현재 신청 가능한 일정이 없습니다.</option>';
+
+    select.disabled =
+      true;
+
+    return;
+
+  }
+
+
+  scheduleData.forEach(
+    function(item) {
+
+      const option =
+        document.createElement(
+          'option'
+        );
+
+
+      option.value =
+        item.date;
+
+
+      option.textContent =
+        item.displayDate;
+
+
+      if (
+        item.disabled
+      ) {
+
+        option.disabled =
+          true;
+
+      }
+
+
+      select.appendChild(
+        option
+      );
+
+    }
+  );
+
+
+  select.disabled =
+    false;
+
+}
+
+
+/* =========================================================
+   날짜 변경
+========================================================= */
+
+document
+  .getElementById(
+    'activityDate'
+  )
+  .addEventListener(
+    'change',
+    function() {
+
+      selectedSchedule =
+        scheduleData.find(
+          item =>
+            item.date ===
+            this.value
+        );
+
+
+      const notice =
+        document.getElementById(
+          'saturdayNotice'
+        );
+
+
+      const help =
+        document.getElementById(
+          'dateHelp'
+        );
+
+
+      if (
+        !selectedSchedule
+      ) {
+
+        notice.style.display =
+          'none';
+
+        help.textContent =
+          '';
+
+        resetTimes();
+
+        return;
+
+      }
+
+
+      if (
+        selectedSchedule.remaining <= 2
+      ) {
+
+        help.innerHTML =
+
+          '<span class="remaining">' +
+
+          '현재 잔여 ' +
+
+          selectedSchedule.remaining +
+
+          '명입니다.' +
+
+          '</span>';
+
+      }
+
+      else {
+
+        help.textContent =
+          '현재 신청 가능합니다.';
+
+      }
+
+
+      if (
+        selectedSchedule.isSaturday
+      ) {
+
+        notice.style.display =
+          'block';
+
+      }
+
+      else {
+
+        notice.style.display =
+          'none';
+
+      }
+
+
+      createStartTimes();
+
+    }
+  );
+
+
+/* =========================================================
+   시작시간
+========================================================= */
+
+function createStartTimes() {
+
+  const select =
+    document.getElementById(
+      'startTime'
+    );
+
+
+  select.innerHTML =
+    '<option value="">시작시간을 선택해주세요</option>';
+
+
+  let times;
+
+
+  if (
+    selectedSchedule &&
+    selectedSchedule.isSaturday
+  ) {
+
+    times = [
+
+      '09:00',
+
+      '10:00',
+
+      '11:00'
+
+    ];
+
+  }
+
+  else {
+
+    /*
+      평일 시작시간
+      필요하면 이 부분만 수정
+    */
+
+    times = [
+
+      '09:00',
+
+      '10:00',
+
+      '11:00',
+
+      '12:00',
+
+      '13:00',
+
+      '14:00',
+
+      '15:00',
+
+      '16:00'
+
+    ];
+
+  }
+
+
+  times.forEach(
+    function(time) {
+
+      const option =
+        document.createElement(
+          'option'
+        );
+
+
+      option.value =
+        time;
+
+
+      option.textContent =
+        time;
+
+
+      select.appendChild(
+        option
+      );
+
+    }
+  );
+
+
+  select.disabled =
+    false;
+
+
+  resetActivityTime();
+
+}
+
+
+/* =========================================================
+   시작시간 선택
+========================================================= */
+
+document
+  .getElementById(
+    'startTime'
+  )
+  .addEventListener(
+    'change',
+    createActivityTimes
+  );
+
+
+/* =========================================================
+   활동시간
+========================================================= */
+
+function createActivityTimes() {
+
+  const select =
+    document.getElementById(
+      'activityTime'
+    );
+
+
+  const startTime =
+    document.getElementById(
+      'startTime'
+    ).value;
+
+
+  select.innerHTML =
+    '<option value="">활동시간을 선택해주세요</option>';
+
+
+  if (!startTime) {
+
+    select.disabled =
+      true;
+
+    return;
+
+  }
+
+
+  let durations =
+    [1, 2];
+
+
+  /*
+    토요일은 13시를 넘는 활동 제외
+  */
+
+  if (
+    selectedSchedule &&
+    selectedSchedule.isSaturday
+  ) {
+
+    const startHour =
+      Number(
+        startTime
+          .split(':')[0]
+      );
+
+
+    durations =
+      durations.filter(
+        duration =>
+          startHour +
+          duration <= 13
+      );
+
+  }
+
+
+  durations.forEach(
+    function(duration) {
+
+      const option =
+        document.createElement(
+          'option'
+        );
+
+
+      option.value =
+        duration;
+
+
+      option.textContent =
+        duration +
+        '시간';
+
+
+      select.appendChild(
+        option
+      );
+
+    }
+  );
+
+
+  select.disabled =
+    false;
+
+}
+
+
+/* =========================================================
+   제출 직전
+========================================================= */
+
+document
+  .getElementById(
+    'applicationForm'
+  )
+  .addEventListener(
+    'submit',
+    function(event) {
+
+      const button =
+        document.getElementById(
+          'submitButton'
+        );
+
+
+      button.disabled =
+        true;
+
+
+      button.textContent =
+        '신청 처리 중...';
+
+
+      hideMessage();
+
+    }
+  );
+
+
+/* =========================================================
+   Apps Script POST 결과 수신
+========================================================= */
+
+window.addEventListener(
+  'message',
+  function(event) {
+
+    /*
+      Google Apps Script가
+      script.google.com 또는
+      googleusercontent.com에서 응답
+    */
+
+    const origin =
+      event.origin || '';
+
+
+    const validOrigin =
+
+      origin ===
+        'https://script.google.com'
+
+      ||
+
+      origin ===
+        'https://script.googleusercontent.com'
+
+      ||
+
+      origin.endsWith(
+        '.googleusercontent.com'
+      );
+
+
+    if (
+      !validOrigin
+    ) {
+
+      return;
+
+    }
+
+
+    const result =
+      event.data;
+
+
+    if (
+      !result ||
+      typeof result !==
+      'object'
+    ) {
+
+      return;
+
+    }
+
+
+    const button =
+      document.getElementById(
+        'submitButton'
+      );
+
+
+    button.disabled =
+      false;
+
+
+    button.textContent =
+      '신청하기';
+
+
+    if (
+      result.success
+    ) {
+
+      showMessage(
+        result.message,
+        true
+      );
+
+
+      document
+        .getElementById(
+          'applicationForm'
+        )
+        .reset();
+
+
+      selectedSchedule =
+        null;
+
+
+      resetTimes();
+
+
+      document
+        .getElementById(
+          'dateHelp'
+        )
+        .textContent =
+        '';
+
+
+      document
+        .getElementById(
+          'saturdayNotice'
+        )
+        .style.display =
+        'none';
+
+
+      /*
+        신청 후 잔여인원 즉시 갱신
+      */
+
+      setTimeout(
+        loadSchedule,
+        500
+      );
+
+    }
+
+    else {
+
+      showMessage(
+        result.message ||
+        '신청에 실패했습니다.',
+        false
+      );
+
+
+      loadSchedule();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   전화번호 하이픈
+========================================================= */
+
+document
+  .getElementById(
+    'phone'
+  )
+  .addEventListener(
+    'input',
+    function() {
+
+      let value =
+        this.value
+          .replace(
+            /\D/g,
+            ''
+          );
+
+
+      value =
+        value.substring(
+          0,
+          11
+        );
+
+
+      if (
+        value.length <= 3
+      ) {
+
+        this.value =
+          value;
+
+      }
+
+      else if (
+        value.length <= 7
+      ) {
+
+        this.value =
+
+          value.slice(0,3) +
+
+          '-' +
+
+          value.slice(3);
+
+      }
+
+      else {
+
+        this.value =
+
+          value.slice(0,3) +
+
+          '-' +
+
+          value.slice(3,7) +
+
+          '-' +
+
+          value.slice(7);
+
+      }
+
+    }
+  );
+
+
+/* =========================================================
+   초기화
+========================================================= */
+
+function resetTimes() {
+
+  const start =
+    document.getElementById(
+      'startTime'
+    );
+
+
+  start.innerHTML =
+    '<option value="">먼저 활동 날짜를 선택해주세요</option>';
+
+
+  start.disabled =
+    true;
+
+
+  resetActivityTime();
+
+}
+
+
+function resetActivityTime() {
+
+  const activity =
+    document.getElementById(
+      'activityTime'
+    );
+
+
+  activity.innerHTML =
+    '<option value="">먼저 시작시간을 선택해주세요</option>';
+
+
+  activity.disabled =
+    true;
+
+}
+
+
+/* =========================================================
+   메시지
+========================================================= */
+
+function showMessage(
+  text,
+  success
+) {
+
+  const box =
+    document.getElementById(
+      'message'
+    );
+
+
+  box.textContent =
+    text;
+
+
+  box.className =
+    success
+      ? 'message success'
+      : 'message error';
+
+
+  box.scrollIntoView({
+
+    behavior: 'smooth',
+
+    block: 'nearest'
+
+  });
+
+}
+
+
+function hideMessage() {
+
+  const box =
+    document.getElementById(
+      'message'
+    );
+
+
+  box.className =
+    'message';
+
+}
+
+</script>
+
+
+</body>
+
+</html>

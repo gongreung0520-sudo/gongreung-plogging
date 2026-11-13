@@ -859,7 +859,7 @@
           "신청 처리 중…";
 
         showStatus(
-          "신청 내용을 안전하게 전송하고 있습니다.",
+          "신청 내용을 안전하게 전송하고 있습니다.",iframe
           "info"
         );
 
@@ -892,10 +892,13 @@
 
         waitingForSubmit = false;
 
-        submitButton.disabled = false;
-
-        submitButton.textContent =
-          "신청하기";
+        if (result.success) {
+  submitButton.disabled = true;
+  submitButton.textContent = "신청 완료";
+} else {
+  submitButton.disabled = false;
+  submitButton.textContent = "다시 신청하기";
+}
 
         showStatus(
           result.message ||

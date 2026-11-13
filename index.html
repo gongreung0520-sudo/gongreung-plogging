@@ -569,6 +569,12 @@
         "</option>";
 
       schedule.forEach(function (item) {
+        if (
+  getDay(item.date) === 0 ||
+  getDay(item.date) === 6
+) {
+  return;
+}
         const option =
           document.createElement("option");
 
